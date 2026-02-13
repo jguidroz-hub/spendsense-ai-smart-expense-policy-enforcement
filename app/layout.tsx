@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
+import { Providers } from './providers';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { SessionProvider } from 'next-auth/react';
-
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -22,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SessionProvider>
+        <Providers>
           <nav className="border-b">
             <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
               <a href="/" className="font-bold text-lg">SpendSense AI - Smart Expense Policy Enforcement</a>
@@ -33,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </nav>
           <main>{children}</main>
-        </SessionProvider>
+        </Providers>
       </body>
     </html>
   );
